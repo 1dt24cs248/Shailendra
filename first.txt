@@ -1,1 +1,16 @@
 hello from git
+# Save (stash) your current changes
+git stash
+
+# Switch to another branch (example: main)
+git checkout main
+# or
+git switch main
+
+# Return to the previous branch (example: feature)
+git checkout feature
+# or
+git switch feature
+
+# Apply the stashed changes
+git stash pop
