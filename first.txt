@@ -1,16 +1,52 @@
 hello from git
-# Save (stash) your current changes
+# Create a directory and initialize Git
+mkdir Exp9
+cd Exp9
+git init
+
+# Create a file and make the initial commit
+echo "Initial content" > file.txt
+git add .
+git commit -m "Initial Commit"
+
+# Create a feature branch and switch to it
+git checkout -b feature
+
+# Modify the file and commit the changes
+echo "Feature Change 1" >> file.txt
+git add .
+git commit -m "Feature Commit 1"
+
+# Make another change but do not commit
+echo "Temporary work" >> file.txt
+
+# Check status
+git status
+
+# Stash the uncommitted changes
 git stash
 
-# Switch to another branch (example: main)
-git checkout main
-# or
-git switch main
+# Switch to the main branch
+git checkout master
+# (use 'main' instead of 'master' if your default branch is main)
 
-# Return to the previous branch (example: feature)
+# Make changes in the main branch
+echo "Main Branch Change" >> file.txt
+git add .
+git commit -m "Main Branch Commit"
+
+# Switch back to the feature branch
 git checkout feature
-# or
-git switch feature
 
 # Apply the stashed changes
 git stash pop
+
+# Check the status
+git status
+
+# Stage and commit the applied changes
+git add .
+git commit -m "Applied stashed changes"
+
+# View the commit history
+git log --oneline --graph --all
